@@ -26,7 +26,7 @@ def get_subs():
     # AWS AppSync requires a specific header for authorization
     headers = {
         "Content-Type": "application/json",
-        "x-api-key": os.environ['appsync_api_key']  # Replace with your API key or other authentication headers
+        "x-api-key": os.environ['appsync_api_key']  # should work with lambda env var, or could use secret manager...
     }
 
     response = requests.post(api_url, headers=headers, data=json.dumps({"query": graphql_query}))
